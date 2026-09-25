@@ -1,3 +1,6 @@
+using DrinkOrderingSystem.Application.Categories.DTOs;
+using DrinkOrderingSystem.Application.Categories.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkOrderingSystem.API.Controllers;
@@ -7,5 +10,8 @@ namespace DrinkOrderingSystem.API.Controllers;
 public sealed class CategoriesController : ControllerBase
 {
     [HttpGet]
-    public IActionResult GetAll() => Ok(Array.Empty<object>());
+    public async Task<ActionResult<IReadOnlyList<CategoryDto>>> GetAll(CancellationToken cancellationToken, [FromServices] ISender sender)
+    {
+        return Ok(await sender.Send(new GetCategoriesQuery(), cancellationToken));
+    }
 }

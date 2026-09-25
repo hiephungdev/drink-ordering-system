@@ -1,10 +1,11 @@
+using DrinkOrderingSystem.Application.Common.Interfaces;
 using DrinkOrderingSystem.Domain.Entities;
 using DrinkOrderingSystem.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrinkOrderingSystem.Infrastructure.Persistence;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IUnitOfWork
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IUnitOfWork, IApplicationDbContext
 {
     public DbSet<Drink> Drinks => Set<Drink>();
     public DbSet<Category> Categories => Set<Category>();

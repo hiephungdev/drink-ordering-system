@@ -23,7 +23,7 @@ Monorepo scaffold cho he thong dat nuoc gom customer app, staff dashboard va ASP
 docker compose up --build
 ```
 
-Backend chay tai `http://localhost:5000`; PostgreSQL expose tai port `5432`.
+Backend chay tai `http://localhost:5000`; PostgreSQL Docker expose tai port `5433` de tranh trung voi PostgreSQL local tren Windows.
 
 ## Chay local ca 3 phan
 

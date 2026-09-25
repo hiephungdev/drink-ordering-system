@@ -1,3 +1,4 @@
+using DrinkOrderingSystem.Application.Common.Interfaces;
 using DrinkOrderingSystem.Domain.Interfaces;
 using DrinkOrderingSystem.Infrastructure.Identity;
 using DrinkOrderingSystem.Infrastructure.Persistence;
@@ -14,6 +15,7 @@ public static class DependencyInjection
     {
         services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<AppDbContext>());
         services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<AppDbContext>());
         services.AddScoped<IJwtService, JwtService>();
         services.AddSignalR();
