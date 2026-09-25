@@ -1,0 +1,6 @@
+@DrinkOrderingSystem.API_HostAddress = http://localhost:5030
+
+GET {{DrinkOrderingSystem.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
